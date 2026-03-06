@@ -27,12 +27,18 @@ fn main() {
   println!("tup: {:?}", tup);
 
   // strings
-  let s: String = String::from("Hello, Rust!");
+  let mut s: String = String::from("Hello, Rust!");
+  println!("s: {}", s);
+
+  s += " Welcome to programming."; // concatenating strings
   println!("s: {}", s);
 
    // slices
   let slice: &[i32] = &arr[1..4]; // creates a slice of the array from index 1 to 3
   println!("slice: {:?}", slice);
+
+  let fruits: [&str; 3] = ["apple", "banana", "cherry"];
+  println!("fruits: {:?}", fruits);
 
     
 }
