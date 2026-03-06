@@ -11,5 +11,13 @@ fn main() {
   
   let max = i32::MAX;
   println!("max: {}", max);
+  
+  // compound data types
+  // arrays, tuples, slices, strings
+  
+  // arrays
+  let arr: [i32; 5] = [1, 2, 3, 4, 5];
+  println!("arr: {:?}", arr);
+  
     
 }
