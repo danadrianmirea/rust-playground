@@ -16,9 +16,4 @@ fn main() {
     println!("letter: {}", letter);
     letter = 'B';
     println!("letter: {}", letter);
-    println!("x: {}, r: {}", x, r);
-    r = 9;
-
-
-
 }
