@@ -43,5 +43,8 @@ fn main() {
   let human: (String, i32, bool) = (String::from("Alice"), 30, true);
   println!("human: {:?}", human);
 
+  let yet_another_tuple = ("Example String", 23, true, [1, 2, 3]);
+  println!("yet_another_tuple: {:?}", yet_another_tuple);
+
     
 }
