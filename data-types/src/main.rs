@@ -30,7 +30,9 @@ fn main() {
   let s: String = String::from("Hello, Rust!");
   println!("s: {}", s);
 
-   
+   // slices
+  let slice: &[i32] = &arr[1..4]; // creates a slice of the array from index 1 to 3
+  println!("slice: {:?}", slice);
 
     
 }
