@@ -40,5 +40,8 @@ fn main() {
   let fruits: [&str; 3] = ["apple", "banana", "cherry"];
   println!("fruits: {:?}", fruits);
 
+  let human: (String, i32, bool) = (String::from("Alice"), 30, true);
+  println!("human: {:?}", human);
+
     
 }
