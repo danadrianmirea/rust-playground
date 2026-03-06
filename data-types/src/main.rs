@@ -8,5 +8,8 @@ fn main() {
   
   println!("x: {}", x);
   println!("y: {}", y);
+  
+  let max = i32::MAX;
+  println!("max: {}", max);
     
 }
