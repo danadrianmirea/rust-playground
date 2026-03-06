@@ -6,7 +6,7 @@ fn main() {
     let default_integer = 8;
     let my_array: [i32; 5] = [1, 2, 3, 4, 5];
     let mut letter: char = 'A';
-
+   
     println!("logical: {}", logical);
     println!("a_float: {}", a_float);
     println!("my_integer: {}", my_integer);
@@ -16,5 +16,9 @@ fn main() {
     println!("letter: {}", letter);
     letter = 'B';
     println!("letter: {}", letter);
+    println!("x: {}, r: {}", x, r);
+    r = 9;
+
+
 
 }
