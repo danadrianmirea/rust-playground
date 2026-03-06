@@ -46,5 +46,8 @@ fn main() {
   let yet_another_tuple = ("Example String", 23, true, [1, 2, 3]);
   println!("yet_another_tuple: {:?}", yet_another_tuple);
 
+  let number_slices:&[i32] = &[10, 20, 30, 40];
+  println!("number_slices: {:?}", number_slices);
+
     
 }
