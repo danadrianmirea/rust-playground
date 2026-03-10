@@ -5,7 +5,7 @@ fn main() {
     let default_float = 3.29;
     let default_integer = 8;
 
-    let myArray: [i32; 5] = [1, 2, 3, 4, 5];
+    let my_array: [i32; 5] = [1, 2, 3, 4, 5];
 
     println!("logical: {}", logical);
 
