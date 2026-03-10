@@ -16,4 +16,7 @@ fn main() {
     println!("letter: {}", letter);
     letter = 'B';
     println!("letter: {}", letter);
+
+    let stone_cold: String = String::from("Stone Cold Steve Austin");
+    println!("stone_cold: {}", stone_cold);
 }
