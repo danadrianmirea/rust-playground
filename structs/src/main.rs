@@ -4,10 +4,6 @@ struct BankAccount {
 }
 
 impl BankAccount {
-    fn new(owner: String, balance: f64) -> BankAccount {
-        BankAccount { owner, balance }
-    }
-
     fn deposit(&mut self, amount: f64) {
         self.balance += amount;
     }
