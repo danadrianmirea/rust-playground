@@ -16,4 +16,15 @@ fn main() {
     println!("letter: {}", letter);
     letter = 'B';
     println!("letter: {}", letter);
+
+    let mut stone_cold: String = String::from("Stone Cold Steve Austin");
+    println!("stone_cold: {}", stone_cold);
+    stone_cold.push_str(" Test");
+    println!("stone_cold: {}", stone_cold);
+
+    let hw: String = String::from("Hello World");
+    println!("hw: {}", hw);
+    let slice: &str = &hw[0..5];
+    println!("slice: {}", slice);
+
 }
