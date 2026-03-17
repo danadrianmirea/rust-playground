@@ -1,3 +1,6 @@
+#![allow(dead_code)]
+#![allow(unused_variables)]
+
 struct BankAccount {
     owner : String,
     balance: f64,
@@ -69,8 +72,11 @@ fn test_savings_account() {
     println!("{}'s balance after applying interest: ${}", savings.account.owner, savings.account.get_balance());
 }
 
+use std::any::Any;
+
 trait Animal {
     fn make_sound(&self);
+    fn as_any(&self) -> &dyn Any;
 }
 
 struct Dog {
@@ -87,6 +93,9 @@ impl Dog {
 impl Animal for Dog {
     fn make_sound(&self) {
         println!("Woof!");
+    }
+    fn as_any(&self) -> &dyn Any {
+        self
     }
 }
 
@@ -105,16 +114,38 @@ impl Animal for Cat {
     fn make_sound(&self) {
         println!("Meow!");
     }
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
+}
+
+struct Lion {
+    cat: Cat,
+    mane_size: f64
+}
+
+impl Animal for Lion {
+    fn make_sound(&self) {
+        println!("Roar!");
+    }
+    fn as_any(&self) -> &dyn Any {
+        self
+    }
 }
 
 fn test_polimorphism() {
     let dog = Dog::new(String::from("Buddy"), String::from("Golden Retriever"));
     let cat = Cat::new(String::from("Whiskers"), String::from("Tabby"));
+    let lion: Lion = Lion { cat: Cat::new(String::from("Simba"), String::from("Golden")), mane_size: 1.5 };
 
-    let animals: Vec<Box<dyn Animal>> = vec![Box::new(dog), Box::new(cat)];
+    let animals: Vec<Box<dyn Animal>> = vec![Box::new(dog), Box::new(cat), Box::new(lion)];
 
     for animal in animals {
         animal.make_sound();
+        // if animal is a lion, we can access its mane_size through downcasting
+        if let Some(lion) = animal.as_any().downcast_ref::<Lion>() {
+            println!("This lion has a mane size of {} meters.", lion.mane_size);
+        }
     }
 }
 
