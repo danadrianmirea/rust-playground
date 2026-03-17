@@ -1,4 +1,5 @@
-fn main() {
+fn main() 
+{
   // int, float, bool, char
   // u8, u16, ... , u128  
   // i8, i16, ... , i128
@@ -48,6 +49,4 @@ fn main() {
 
   let number_slices:&[i32] = &[10, 20, 30, 40];
   println!("number_slices: {:?}", number_slices);
-
-    
 }
