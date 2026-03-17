@@ -10,4 +10,11 @@ fn main() {
     helloworld();
     let sum = add(5, 10);
     println!("The sum of 5 and 10 is: {}", sum);
+
+    let x : i32 = {
+        let y = 3;
+        let z = y + 2;
+        y+z
+    };
+    println!("The value of x is: {}", x);
 }
