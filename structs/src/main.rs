@@ -69,7 +69,58 @@ fn test_savings_account() {
     println!("{}'s balance after applying interest: ${}", savings.account.owner, savings.account.get_balance());
 }
 
+trait Animal {
+    fn make_sound(&self);
+}
+
+struct Dog {
+    name: String,
+    breed: String
+}
+
+impl Dog {
+    fn new(name: String, breed: String) -> Dog {
+        Dog { name, breed }
+    }
+}
+
+impl Animal for Dog {
+    fn make_sound(&self) {
+        println!("Woof!");
+    }
+}
+
+struct Cat {
+    name: String,
+    color: String
+}
+
+impl Cat {
+    fn new(name: String, color: String) -> Cat {
+        Cat { name, color }
+    }
+}
+
+impl Animal for Cat {
+    fn make_sound(&self) {
+        println!("Meow!");
+    }
+}
+
+fn test_polimorphism() {
+    let dog = Dog::new(String::from("Buddy"), String::from("Golden Retriever"));
+    let cat = Cat::new(String::from("Whiskers"), String::from("Tabby"));
+
+    let animals: Vec<Box<dyn Animal>> = vec![Box::new(dog), Box::new(cat)];
+
+    for animal in animals {
+        animal.make_sound();
+    }
+}
+
+
 fn main() {
     test_bank_account();
     test_savings_account();
+    test_polimorphism();
 }
