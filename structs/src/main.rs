@@ -22,7 +22,7 @@ impl BankAccount {
     }
 }
 
-fn main() {
+fn TestBankAccount() {
     let mut account : BankAccount = BankAccount{owner: String::from("Alice"), balance: 1000.0};
     println!("{}'s initial balance: ${}", account.owner, account.get_balance());
 
@@ -38,4 +38,8 @@ fn main() {
         Ok(_) => println!("{}'s balance after withdrawal: ${}", account.owner, account.get_balance()),
         Err(e) => println!("Withdrawal failed: {}", e),
     }
+}   
+
+fn main() {
+    TestBankAccount();
 }
