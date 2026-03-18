@@ -100,10 +100,47 @@ fn test_quick_sort() {
     println!("Sorted array: {:?}", arr);
 }
 
+fn heap_sort(arr: &mut [i32]) {
+    let n = arr.len();
+    for i in (0..n / 2).rev() {
+        heapify(arr, n, i);
+    }
+    for i in (1..n).rev() {
+        arr.swap(0, i);
+        heapify(arr, i, 0);
+    }
+}
+
+fn heapify(arr: &mut [i32], n: usize, i: usize) {
+    let mut largest = i;
+    let left = 2 * i + 1;
+    let right = 2 * i + 2;
+
+    if left < n && arr[left] > arr[largest] {
+        largest = left;
+    }
+    if right < n && arr[right] > arr[largest] {
+        largest = right;
+    }
+    if largest != i {
+        arr.swap(i, largest);
+        heapify(arr, n, largest);
+    }
+}
+
+fn test_heap_sort() {
+    println!("Testing heap sort...");
+    let mut arr = generate_random_array(10);
+    println!("Original array: {:?}", arr);
+    heap_sort(&mut arr);
+    println!("Sorted array: {:?}", arr);
+}
+
 fn main() {
     test_bubble_sort();
     test_insertion_sort();
     test_selection_sort();
     test_quick_sort();
+    test_heap_sort();
 }   
 
