@@ -70,9 +70,40 @@ fn test_selection_sort() {
     println!("Sorted array: {:?}", arr);
 }
 
+fn quick_sort(arr: &mut [i32]) {
+    if arr.len() <= 1 {
+        return;
+    }
+    let pivot_index = partition(arr);
+    quick_sort(&mut arr[0..pivot_index]);
+    quick_sort(&mut arr[pivot_index + 1..]);
+}
+
+fn partition(arr: &mut [i32]) -> usize {
+    let pivot = arr[arr.len() - 1];
+    let mut i = 0;
+    for j in 0..arr.len() - 1 {
+        if arr[j] < pivot {
+            arr.swap(i, j);
+            i += 1;
+        }
+    }
+    arr.swap(i, arr.len() - 1);
+    i
+}
+
+fn test_quick_sort() {
+    println!("Testing quick sort...");
+    let mut arr = generate_random_array(10);
+    println!("Original array: {:?}", arr);
+    quick_sort(&mut arr);
+    println!("Sorted array: {:?}", arr);
+}
+
 fn main() {
     test_bubble_sort();
     test_insertion_sort();
     test_selection_sort();
+    test_quick_sort();
 }   
 
