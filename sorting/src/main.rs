@@ -1,6 +1,7 @@
 // import the rand crate for generating random numbers
 use log::{info, debug};
 use env_logger;
+use std::time::Instant;
 
 fn bubble_sort(arr: &mut [i32]) {
     let n = arr.len();
@@ -16,7 +17,10 @@ fn bubble_sort(arr: &mut [i32]) {
 fn test_bubble_sort(arr: &mut [i32]) {
     debug!("Testing bubble sort...");
     debug!("Original array: {:?}", arr);
+    let start = Instant::now();
     bubble_sort(arr);
+    let duration = start.elapsed();
+    info!("Bubble sort took: {:?}", duration);
     debug!("Sorted array: {:?}", arr);
 }
 
@@ -44,7 +48,10 @@ fn generate_random_array(size: usize) -> Vec<i32> {
 fn test_insertion_sort(arr: &mut [i32]) {
     debug!("Testing insertion sort...");
     debug!("Original array: {:?}", arr);
+    let start = Instant::now();
     insertion_sort(arr);
+    let duration = start.elapsed();
+    info!("Insertion sort took: {:?}", duration);
     debug!("Sorted array: {:?}", arr);
 }
 
@@ -64,7 +71,10 @@ fn selection_sort(arr: &mut [i32]) {
 fn test_selection_sort(arr: &mut [i32]) {
     debug!("Testing selection sort...");
     debug!("Original array: {:?}", arr);
+    let start = Instant::now();
     selection_sort(arr);
+    let duration = start.elapsed();
+    info!("Selection sort took: {:?}", duration);
     debug!("Sorted array: {:?}", arr);
 }
 
@@ -93,7 +103,10 @@ fn partition(arr: &mut [i32]) -> usize {
 fn test_quick_sort(arr: &mut [i32]) {
     debug!("Testing quick sort...");
     debug!("Original array: {:?}", arr);
+    let start = Instant::now();
     quick_sort(arr);
+    let duration = start.elapsed();
+    info!("Quick sort took: {:?}", duration);
     debug!("Sorted array: {:?}", arr);
 }
 
@@ -128,7 +141,10 @@ fn heapify(arr: &mut [i32], n: usize, i: usize) {
 fn test_heap_sort(arr: &mut [i32]) {
     debug!("Testing heap sort...");
     debug!("Original array: {:?}", arr);
+    let start = Instant::now();
     heap_sort(arr);
+    let duration = start.elapsed();
+    info!("Heap sort took: {:?}", duration);
     debug!("Sorted array: {:?}", arr);
 }
 
@@ -163,13 +179,16 @@ fn merge(arr: &mut [i32], mid: usize) {
 fn test_merge_sort(arr: &mut [i32]) {
     debug!("Testing merge sort...");
     debug!("Original array: {:?}", arr);
+    let start = Instant::now();
     merge_sort(arr);
+    let duration = start.elapsed();
+    info!("Merge sort took: {:?}", duration);
     debug!("Sorted array: {:?}", arr);
 }
 
 fn main() {
     env_logger::init();
-    let size = 10;
+    let size = 10000;
     info!("Generating random array of size {}...", size);
     let arr = generate_random_array(size);
 
@@ -179,5 +198,4 @@ fn main() {
     test_quick_sort(&mut arr.clone());
     test_heap_sort(&mut arr.clone());
     test_merge_sort(&mut arr.clone());
-}   
-
+}
