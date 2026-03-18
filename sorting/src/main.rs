@@ -188,6 +188,7 @@ fn test_merge_sort(arr: &mut [i32]) {
 
 fn main() {
     env_logger::init();
+    
     let size = 10000;
     info!("Generating random array of size {}...", size);
     let arr = generate_random_array(size);
