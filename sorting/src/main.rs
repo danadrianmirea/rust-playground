@@ -1,5 +1,6 @@
 // import the rand crate for generating random numbers
 use rand::Rng;
+use log::{info, debug};
 
 fn bubble_sort(arr: &mut [i32]) {
     let n = arr.len();
@@ -13,11 +14,11 @@ fn bubble_sort(arr: &mut [i32]) {
 }
 
 fn test_bubble_sort() {
-    println!("Testing bubble sort...");
+    debug!("Testing bubble sort...");
     let mut arr = generate_random_array(10);
-    println!("Original array: {:?}", arr);
+    debug!("Original array: {:?}", arr);
     bubble_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    debug!("Sorted array: {:?}", arr);
 }
 
 fn insertion_sort(arr: &mut [i32]) {
@@ -42,11 +43,11 @@ fn generate_random_array(size: usize) -> Vec<i32> {
 }
 
 fn test_insertion_sort() {
-    println!("Testing insertion sort...");
+    debug!("Testing insertion sort...");
     let mut arr = generate_random_array(10);
-    println!("Original array: {:?}", arr);
+    debug!("Original array: {:?}", arr);
     insertion_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    debug!("Sorted array: {:?}", arr);
 }
 
 fn selection_sort(arr: &mut [i32]) {
@@ -63,11 +64,11 @@ fn selection_sort(arr: &mut [i32]) {
 }
 
 fn test_selection_sort() {
-    println!("Testing selection sort...");
+    debug!("Testing selection sort...");
     let mut arr = generate_random_array(10);
-    println!("Original array: {:?}", arr);
+    debug!("Original array: {:?}", arr);
     selection_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    debug!("Sorted array: {:?}", arr);
 }
 
 fn quick_sort(arr: &mut [i32]) {
@@ -93,11 +94,11 @@ fn partition(arr: &mut [i32]) -> usize {
 }
 
 fn test_quick_sort() {
-    println!("Testing quick sort...");
+    debug!("Testing quick sort...");
     let mut arr = generate_random_array(10);
-    println!("Original array: {:?}", arr);
+    debug!("Original array: {:?}", arr);
     quick_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    debug!("Sorted array: {:?}", arr);
 }
 
 fn heap_sort(arr: &mut [i32]) {
@@ -129,11 +130,11 @@ fn heapify(arr: &mut [i32], n: usize, i: usize) {
 }
 
 fn test_heap_sort() {
-    println!("Testing heap sort...");
+    debug!("Testing heap sort...");
     let mut arr = generate_random_array(10);
-    println!("Original array: {:?}", arr);
+    debug!("Original array: {:?}", arr);
     heap_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    debug!("Sorted array: {:?}", arr);
 }
 
 fn merge_sort(arr: &mut [i32]) {
@@ -165,11 +166,11 @@ fn merge(arr: &mut [i32], mid: usize) {
 }
 
 fn test_merge_sort() {
-    println!("Testing merge sort...");
+    debug!("Testing merge sort...");
     let mut arr = generate_random_array(10);
-    println!("Original array: {:?}", arr);
+    debug!("Original array: {:?}", arr);
     merge_sort(&mut arr);
-    println!("Sorted array: {:?}", arr);
+    debug!("Sorted array: {:?}", arr);
 }
 
 fn main() {
