@@ -49,8 +49,30 @@ fn test_insertion_sort() {
     println!("Sorted array: {:?}", arr);
 }
 
+fn selection_sort(arr: &mut [i32]) {
+    let n = arr.len();
+    for i in 0..n {
+        let mut min_index = i;
+        for j in (i + 1)..n {
+            if arr[j] < arr[min_index] {
+                min_index = j;
+            }
+        }
+        arr.swap(i, min_index);
+    }
+}
+
+fn test_selection_sort() {
+    println!("Testing selection sort...");
+    let mut arr = generate_random_array(10);
+    println!("Original array: {:?}", arr);
+    selection_sort(&mut arr);
+    println!("Sorted array: {:?}", arr);
+}
+
 fn main() {
     test_bubble_sort();
     test_insertion_sort();
+    test_selection_sort();
+}   
 
-}
