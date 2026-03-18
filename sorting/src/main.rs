@@ -136,11 +136,48 @@ fn test_heap_sort() {
     println!("Sorted array: {:?}", arr);
 }
 
+fn merge_sort(arr: &mut [i32]) {
+    if arr.len() <= 1 {
+        return;
+    }
+    let mid = arr.len() / 2;
+    merge_sort(&mut arr[0..mid]);
+    merge_sort(&mut arr[mid..]);
+    merge(arr, mid);
+}
+
+fn merge(arr: &mut [i32], mid: usize) {
+    let mut left = arr[0..mid].to_vec();
+    let mut right = arr[mid..].to_vec();
+    left.push(i32::MAX);
+    right.push(i32::MAX);
+    let mut i = 0;
+    let mut j = 0;
+    for k in 0..arr.len() {
+        if left[i] <= right[j] {
+            arr[k] = left[i];
+            i += 1;
+        } else {
+            arr[k] = right[j];
+            j += 1;
+        }
+    }
+}
+
+fn test_merge_sort() {
+    println!("Testing merge sort...");
+    let mut arr = generate_random_array(10);
+    println!("Original array: {:?}", arr);
+    merge_sort(&mut arr);
+    println!("Sorted array: {:?}", arr);
+}
+
 fn main() {
     test_bubble_sort();
     test_insertion_sort();
     test_selection_sort();
     test_quick_sort();
     test_heap_sort();
+    test_merge_sort();
 }   
 
