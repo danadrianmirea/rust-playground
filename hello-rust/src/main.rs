@@ -38,7 +38,7 @@ fn loop_test() {
     println!();
 }
 
-// static variables use screaming snake case
+// static variables use screaming snake case (caps)
 static RECT2: Rectangle = Rectangle { width: 20, height: 30 };
 
 // typedefs use camel case
