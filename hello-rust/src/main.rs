@@ -26,6 +26,18 @@ fn while_loop() {
     println!();
 }
 
+fn loop_test() {
+    let mut c = 1;
+    loop {
+        print!("{} ", c);
+        c = c + 1;
+        if c > 10 {
+            break;
+        }
+    }
+    println!();
+}
+
 fn main() {
     //test();
 
@@ -33,5 +45,6 @@ fn main() {
     //println!("res is: {}", res);
 
     //for_test();
-    while_loop();
+    //while_loop();
+    loop_test();
 }
