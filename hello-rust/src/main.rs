@@ -63,7 +63,16 @@ fn struct_test() {
     }
 }
 
-
+fn enum_test() {
+    #[derive(Debug)]
+    enum Color {
+        Red,
+        Green,
+        Blue,
+    }
+    let color = Color::Red;
+    println!("color: {:?}", color);
+}
 
 fn main() {
     //test();
@@ -74,5 +83,6 @@ fn main() {
     //for_test();
     //while_loop();
     //loop_test();
-    struct_test();
+    //struct_test();
+    enum_test();
 }
