@@ -38,6 +38,20 @@ fn loop_test() {
     println!();
 }
 
+fn struct_test() {
+    let rect = Rectangle { width: 10, height: 20 };
+    println!("rect: {}", rect.area());
+    struct Rectangle {
+        width: u32,
+        height: u32,
+    }
+    impl Rectangle {
+        fn area(&self) -> u32 {
+            self.width * self.height
+        }
+    }
+}
+
 fn main() {
     //test();
 
@@ -46,5 +60,6 @@ fn main() {
 
     //for_test();
     //while_loop();
-    loop_test();
+    //loop_test();
+    struct_test();
 }
