@@ -38,7 +38,18 @@ fn loop_test() {
     println!();
 }
 
+// static variables use screaming snake case
+static RECT2: Rectangle = Rectangle { width: 20, height: 30 };
+
+// typedefs use camel case
+struct Rectangle {
+    width: u32,
+    height: u32,
+}
+
+// function names use snake case
 fn struct_test() {
+    // local variables use snake case
     let rect = Rectangle { width: 10, height: 20 };
     println!("rect: {}", rect.area());
     struct Rectangle {
@@ -51,6 +62,8 @@ fn struct_test() {
         }
     }
 }
+
+
 
 fn main() {
     //test();
