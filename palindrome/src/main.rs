@@ -1,20 +1,10 @@
 fn is_palindrome(s: &str) -> bool {
-    // Filter only alphanumeric characters and convert to lowercase
-    let cleaned: Vec<char> = s
+    let filtered = s
         .chars()
         .filter(|c| c.is_alphanumeric())
-        .map(|c| c.to_ascii_lowercase())
-        .collect();
+        .map(|c| c.to_ascii_lowercase());
 
-    // Compare characters from both ends
-    let len = cleaned.len();
-    for i in 0..len / 2 {
-        if cleaned[i] != cleaned[len - 1 - i] {
-            return false;
-        }
-    }
-
-    true
+    filtered.clone().eq(filtered.rev())
 }
 
 fn main() {
