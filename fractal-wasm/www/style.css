@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #e0e0e0;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: rgba(30, 30, 46, 0.9);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #4cc9f0;
+}
+
+h1 {
+    color: #4cc9f0;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.subtitle {
+    color: #a9a9b8;
+    font-size: 1.1rem;
+}
+
+.controls {
+    background: rgba(40, 40, 60, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+label {
+    color: #72efdd;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+select, input[type="range"] {
+    padding: 8px 12px;
+    border: 2px solid #4361ee;
+    border-radius: 6px;
+    background: #2d3047;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+input[type="range"] {
+    padding: 0;
+    height: 25px;
+}
+
+button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #4361ee 0%, #3a0ca3 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 5px;
+}
+
+button:hover {
+    background: linear-gradient(135deg, #4895ef 0%, #4361ee 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+#renderBtn {
+    background: linear-gradient(135deg, #4cc9f0 0%, #4361ee 100%);
+}
+
+#resetBtn {
+    background: linear-gradient(135deg, #f72585 0%, #b5179e 100%);
+}
+
+#benchmarkBtn {
+    background: linear-gradient(135deg, #7209b7 0%, #560bad 100%);
+}
+
+.info {
+    grid-column: 1 / -1;
+    background: rgba(30, 30, 46, 0.6);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.info p {
+    margin: 5px 0;
+    color: #a9a9b8;
+    font-size: 0.9rem;
+}
+
+.canvas-container {
+    position: relative;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+#fractalCanvas {
+    display: block;
+    width: 100%;
+    background: #000;
+    cursor: crosshair;
+}
+
+.loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #4cc9f0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.examples {
+    background: rgba(40, 40, 60, 0.8);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.examples h3 {
+    color: #72efdd;
+    margin-bottom: 15px;
+}
+
+.example-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.example {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px 15px;
+    background: rgba(67, 97, 238, 0.2);
+    border: 2px solid #4361ee;
+}
+
+.example:hover {
+    background: rgba(67, 97, 238, 0.4);
+}
+
+footer {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid #4cc9f0;
+    color: #a9a9b8;
+}
+
+.github-link a {
+    color: #4cc9f0;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.github-link a:hover {
+    color: #72efdd;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .controls {
+        grid-template-columns: 1fr;
+    }
+    
+    .example-buttons {
+        flex-direction: column;
+    }
+    
+    .example {
+        width: 100%;
+    }
+}
+
+/* Animation for loading */
+@keyframes pulse {
+    0% { opacity: 0.6; }
+    50% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
+
+.loading {
+    animation: pulse 1.5s infinite;
+}

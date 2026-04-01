@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust WASM Fractal Generator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🦀 Rust WASM Fractal Generator</h1>
+            <p class="subtitle">Mandelbrot & Julia sets computed with WebAssembly</p>
+        </header>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="fractalType">Fractal Type:</label>
+                <select id="fractalType">
+                    <option value="mandelbrot">Mandelbrot Set</option>
+                    <option value="julia">Julia Set</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label for="iterations">Max Iterations:</label>
+                <input type="range" id="iterations" min="10" max="500" value="100">
+                <span id="iterationsValue">100</span>
+            </div>
+
+            <div class="control-group">
+                <label for="zoom">Zoom:</label>
+                <input type="range" id="zoom" min="1" max="1000" value="100">
+                <span id="zoomValue">1.00x</span>
+            </div>
+
+            <div class="control-group julia-controls" style="display: none;">
+                <label for="juliaReal">Julia Real (c):</label>
+                <input type="range" id="juliaReal" min="-100" max="100" value="-70">
+                <span id="juliaRealValue">-0.70</span>
+                
+                <label for="juliaImag">Julia Imag (c):</label>
+                <input type="range" id="juliaImag" min="-100" max="100" value="27">
+                <span id="juliaImagValue">0.27</span>
+            </div>
+
+            <div class="control-group">
+                <button id="renderBtn">Render Fractal</button>
+                <button id="resetBtn">Reset View</button>
+                <button id="benchmarkBtn">Run Benchmark</button>
+            </div>
+
+            <div class="info">
+                <p>Click and drag to pan. Use mouse wheel to zoom.</p>
+                <p id="coordinates">Center: (0.00, 0.00)</p>
+                <p id="renderTime">Render time: -- ms</p>
+            </div>
+        </div>
+
+        <div class="canvas-container">
+            <canvas id="fractalCanvas" width="800" height="600"></canvas>
+            <div class="loading" id="loading">Loading WebAssembly...</div>
+        </div>
+
+        <div class="examples">
+            <h3>Quick Examples:</h3>
+            <div class="example-buttons">
+                <button class="example" data-x="-0.5" data-y="0" data-zoom="1">Mandelbrot Overview</button>
+                <button class="example" data-x="-0.7436439" data-y="0.1318259" data-zoom="200">Seahorse Valley</button>
+                <button class="example" data-x="-1.25066" data-y="0.02012" data-zoom="100">Elephant Valley</button>
+                <button class="example" data-x="0" data-y="0" data-zoom="0.5" data-type="julia">Julia Default</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>Built with Rust 🦀 + WebAssembly + JavaScript</p>
+            <p class="github-link">
+                <a href="https://github.com/rustwasm" target="_blank">Learn about Rust and WebAssembly</a>
+            </p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
